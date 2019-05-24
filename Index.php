@@ -1,21 +1,25 @@
 <?php
 
-namespace app\demo\controller;
-
-use app\demo\controller\Spider;
+namespace ins2me;
+require_once dirname(__FILE__) . '/Spider.php';
+use ins2me\Spider;
 
 class Index
 {
+    public $httpUrl;
+
+    public function __construct($httpUrl) {
+        //要抓取的ins图片的页面链接
+        $this->httpUrl = $httpUrl;
+    }
+
     public function index()
     {
-        
-        $spider = new Spider;
-        //要抓取的ins图片的链接
-        $httpUrl = "";
-        $images = $spider->getImgUrl($httpUrl);
-        foreach ($images as $image) {
-            $spider->downloadImage($image);
+        $spider = new Spider();
+        $images = $spider->getImgUrl($this->httpUrl);
+        if (is_array($images)){
+            $spider->resolveImgFile($images);
         }
-        
     }
 }
+
