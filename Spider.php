@@ -44,9 +44,9 @@ class Spider
 
     private function curlSetOpt(&$ch, $httpUrl)
     {
-        curl_setopt($ch, CURLOPT_PROXY, "176.122.179.36"); //代理服务器地址
-        curl_setopt($ch, CURLOPT_PROXYPORT, 24233); //代理服务器端口
-        curl_setopt($ch, CURLOPT_PROXYUSERPWD, "curl:curlhttp"); //http代理认证帐号
+        curl_setopt($ch, CURLOPT_PROXY, "ip"); //代理服务器地址
+        curl_setopt($ch, CURLOPT_PROXYPORT, port); //代理服务器端口
+        curl_setopt($ch, CURLOPT_PROXYUSERPWD, "user:pwd"); //http代理认证帐号
         curl_setopt($ch, CURLOPT_PROXYTYPE, 7); //使用http代理模式
         curl_setopt($ch, CURLOPT_URL, $httpUrl);
         curl_setopt($ch, CURLOPT_HEADER, 0);
