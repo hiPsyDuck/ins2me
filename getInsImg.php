@@ -18,7 +18,7 @@ class getInsImg
         $spider = new Spider();
         $images = $spider->getImgUrl($this->httpUrl);
         if (is_array($images)) {
-            $spider->resolveImgFile($images);
+            $spider->downloadImage($images);
             return Spider::$imgFileNames;
         }
     }
