@@ -2,6 +2,8 @@
 
 namespace ins2me;
 
+require_once dirname(__FILE__) . '/config.php';
+
 class Spider
 {
     //本次下载的图片
@@ -44,9 +46,9 @@ class Spider
 
     private function curlSetOpt(&$ch, $httpUrl)
     {
-        curl_setopt($ch, CURLOPT_PROXY, "ip"); //代理服务器地址
-        curl_setopt($ch, CURLOPT_PROXYPORT, port); //代理服务器端口
-        curl_setopt($ch, CURLOPT_PROXYUSERPWD, "user:pwd"); //http代理认证帐号
+        curl_setopt($ch, CURLOPT_PROXY, PROXY_IP); //代理服务器地址
+        curl_setopt($ch, CURLOPT_PROXYPORT, PROXY_PORT); //代理服务器端口
+        curl_setopt($ch, CURLOPT_PROXYUSERPWD, PROXY_USER.':'.PROXY_PWD); //http代理认证帐号
         curl_setopt($ch, CURLOPT_PROXYTYPE, 7); //使用http代理模式
         curl_setopt($ch, CURLOPT_URL, $httpUrl);
         curl_setopt($ch, CURLOPT_HEADER, 0);
